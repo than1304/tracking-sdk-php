@@ -23,6 +23,9 @@ class Api
 	# @var string The path to be used for requests.
 	public static $apiPath;
 	
+	# @var string The header key.
+	public static $headerKey = "Trackingmore-Api-Key";
+	
 	# @var string The tracking number.
 	public static $trackingNumber;
 	
@@ -150,7 +153,7 @@ class Api
 	{
 		$header = [
 			"Content-Type: application/json",
-			"Trackingmore-Api-Key: " . self::$apiKey,
+			self::$headerKey.": " . self::$apiKey,
 		];
 		if(!empty(self::$clientId)) $header[] = "Client-Id: ". self::$clientId;
 		return $header;
