@@ -5,7 +5,7 @@ This SDK was created to enable rapid efficient development using Trackingmore's 
 ## Manual Installation
 
 ```php
-require_once('./php/Init.class.php');
+require_once('./Init.class.php');
 ```
 
 ## Getting Started
