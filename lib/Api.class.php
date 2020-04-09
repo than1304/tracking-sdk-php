@@ -183,6 +183,8 @@ class Api
 			4014 => "The value of `tracking_number` is invalid.",
 			4015 => "The value of `carrier_code` is invalid.",
 			4501 => "The submitted parameters do not meet the requirements",
+			4502 => "Signature verification failed",
+			4503 => "No data received or data format error",
 		];
 		if(
 			empty($message) 
