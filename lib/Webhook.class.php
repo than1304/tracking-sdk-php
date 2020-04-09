@@ -10,17 +10,13 @@ class Webhook extends Api
 		preg_match("/\{.*\}/",$requestJson,$match);
 		self::$requestJson = empty($match[0]) ? "" : $match[0];
 		self::$requestArr = empty(self::$requestJson) ? [] : json_decode(self::$requestJson,true);
-		# 如果数据解析失败 那么返回错误码
 		if(empty(self::$requestArr)) return self::errorResponse(4503,"",$requestJson);
-		# 如果传入了用户邮箱 则进行签名验证
 		if(
 			!empty($verifyEmail) 
 			&& is_string($verifyEmail)
 		){
-			# 签名验证未通过
 			if(!self::verify($verifyEmail)) return self::errorResponse(4502,"",$requestJson);
 		}
-		# 返回相应数据
 		return self::$requestJson;
 	}
 	public static function verify($verifyEmail)
